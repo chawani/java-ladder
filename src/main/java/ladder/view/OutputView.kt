@@ -16,7 +16,7 @@ object OutputView {
     }
 
     fun printLadder(players: Players, rewards: Rewards, ladder: Ladder) {
-        println("사다리 결과")
+        println("사다리 게임 결과")
         printNames(players)
         printLadder(ladder)
         printRewards(rewards)
@@ -69,18 +69,17 @@ object OutputView {
                 printResultAll(pairs)
                 break
             }
-            printPlayerResult(name, pairs)
+            printOnePlayerResult(name, pairs)
         }
     }
 
     private fun printResultAll(pairs: ResultPairs) {
-        println("실행 결과")
-        println(pairs.print())
+        println("실행 결과 : ")
+        println(pairs.result())
     }
 
-    private fun printPlayerResult(name: String, pairs: ResultPairs) {
-        val player = pairs.findPlayer(name)
+    private fun printOnePlayerResult(name: String, pairs: ResultPairs) {
         print("실행 결과 : ")
-        print(player.getReward())
+        println(pairs.searchReward(name))
     }
 }

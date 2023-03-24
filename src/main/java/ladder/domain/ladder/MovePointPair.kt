@@ -6,7 +6,7 @@ class MovePointPair(
 ) {
 
     init {
-        require(!(left && right)) { "사다리 생성 에러" }
+        require(!(left && right)) { "사다리 생성 에러!" }
     }
 
     fun canMoveLeft(): Boolean {

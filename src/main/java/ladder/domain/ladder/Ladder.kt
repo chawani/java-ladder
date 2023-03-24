@@ -2,7 +2,10 @@ package ladder.domain.ladder
 
 import ladder.utils.MovePointGenerator
 
-class Ladder(playerCount: Int, height: Int) {
+class Ladder(
+    playerCount: Int,
+    height: Int
+) {
 
     val lines: MutableList<Line> = mutableListOf()
 

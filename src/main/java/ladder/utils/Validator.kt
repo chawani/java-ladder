@@ -3,14 +3,20 @@ package ladder.utils
 object Validator {
 
     private const val REVERSED_WORD = "all"
-    private const val MAX_NAME_LENGTH = 5
-    private const val MIN_NAME_LENGTH = 1
+    private const val MAX_LENGTH = 5
+    private const val MIN_LENGTH = 1
 
     fun validNames(names: List<String>) {
         validDuplicate(names)
         for (name in names) {
             validateNameIsAll(name)
             validateNameLength(name)
+        }
+    }
+
+    fun validRewards(rewards: List<String>) {
+        for (reward in rewards) {
+            validateRewardLength(reward)
         }
     }
 
@@ -32,6 +38,10 @@ object Validator {
     }
 
     private fun validateNameLength(name: String) {
-        require(name.length in MIN_NAME_LENGTH..MAX_NAME_LENGTH) { "이름은 ${MIN_NAME_LENGTH}자 이상 ${MAX_NAME_LENGTH}자 이내여야 합니다." }
+        require(name.length in MIN_LENGTH..MAX_LENGTH) { "이름은 ${MIN_LENGTH}자 이상 ${MAX_LENGTH}자 이내여야 합니다." }
+    }
+
+    private fun validateRewardLength(reward: String) {
+        require(reward.length in MIN_LENGTH..MAX_LENGTH) { "보상은 ${MIN_LENGTH}자 이상 ${MAX_LENGTH}자 이내여야 합니다." }
     }
 }
