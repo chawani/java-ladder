@@ -7,10 +7,12 @@ class Reward(val value: String) {
     }
 
     companion object {
-        private val MAX_REWARD_LENGTH: Int = Player.MAX_NAME_LENGTH
-        private val MIN_REWARD_LENGTH: Int = Player.MIN_NAME_LENGTH
+
+        private const val MAX_LENGTH: Int = 5
+        private const val MIN_LENGTH: Int = 1
+
         private fun validateRewardsLength(reward: String) {
-            require(!(reward.length > MAX_REWARD_LENGTH || reward.length < MIN_REWARD_LENGTH)) { "보상은 " + MIN_REWARD_LENGTH + "자 이상 " + MAX_REWARD_LENGTH + "자 이내여야 합니다." }
+            require(reward.length in MIN_LENGTH..MAX_LENGTH) { "보상은 ${MIN_LENGTH}자 이상 ${MAX_LENGTH}자 이내여야 합니다." }
         }
     }
 }

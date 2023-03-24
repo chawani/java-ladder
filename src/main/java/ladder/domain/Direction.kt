@@ -11,7 +11,7 @@ enum class Direction(private val direction: Int) {
     }
 
     companion object {
-        fun determine(tuple: PointPair): Direction {
+        fun determine(tuple: MovePointPair): Direction {
             if (tuple.canMoveRight()) return RIGHT
             return if (tuple.canMoveLeft()) LEFT else STRAIGHT
         }

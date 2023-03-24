@@ -1,12 +1,11 @@
 package ladder.view
 
 import ladder.domain.*
-import ladder.dto.PointsTupleDto
 import org.apache.commons.lang3.StringUtils
 
 object OutputView {
 
-    private const val PADDING_WIDTH = 5
+    private const val PADDING_WIDTH = 6
 
     fun error(e: Exception) {
         println(e.message)
@@ -20,26 +19,26 @@ object OutputView {
     }
 
     private fun printNames(players: Players) {
-        for (player in players.value) {
+        for (player in players) {
             print(StringUtils.center(player.name, PADDING_WIDTH))
         }
+        println()
     }
 
     private fun printLadder(ladder: Ladder) {
-        println()
         for (line in ladder.lines) {
             printLine(line)
         }
     }
 
     private fun printLine(line: Line) {
-        val points: List<PointsTupleDto> = line.makeTupleDto()
+        val points: List<Boolean> = line.moveJudgments()
 
         val sb = StringBuilder()
         sb.append("  |")
 
         for (point in points) {
-            sb.append(printPoint(point.right))
+            sb.append(printPoint(point))
             sb.append("|")
         }
 
@@ -53,7 +52,7 @@ object OutputView {
     }
 
     private fun printRewards(rewards: Rewards) {
-        for (reward in rewards.value) {
+        for (reward in rewards) {
             print(StringUtils.center(reward.value, PADDING_WIDTH))
         }
     }
@@ -66,7 +65,7 @@ object OutputView {
                 printResultAll(pairs)
                 break
             }
-            checkName(name, pairs)
+            printPlayerResult(name, pairs)
         }
     }
 
@@ -75,16 +74,9 @@ object OutputView {
         println(pairs.print())
     }
 
-    private fun checkName(name: String, pairs: ResultPairs) {
-        if (pairs.hasName(name)) {
-            printResultPair(pairs.findPlayer(name))
-            return
-        }
-        println("존재하는 이름을 입력해야 합니다.")
-    }
-
-    private fun printResultPair(pair: ResultPair) {
+    private fun printPlayerResult(name: String, pairs: ResultPairs) {
+        val player = pairs.findPlayer(name)
         print("실행 결과 : ")
-        print(pair.getReward())
+        print(player.getReward())
     }
 }
