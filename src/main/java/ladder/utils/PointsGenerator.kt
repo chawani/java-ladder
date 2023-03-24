@@ -1,34 +1,25 @@
 package ladder.utils
 
-import ladder.domain.PointsTuple
-import org.apache.commons.lang3.BooleanUtils
-import java.util.*
+import ladder.domain.PointPair
+import org.apache.commons.lang3.BooleanUtils.isTrue
+import java.lang.Math.random
 
-class PointsGenerator(private val countOfPlayer: Int) {
+object PointsGenerator {
 
-    private var before = false
+    fun generate(countOfPlayer: Int): List<PointPair> {
+        val points: MutableList<PointPair> = mutableListOf()
 
-    fun generate(): List<PointsTuple> {
-        before = false
-        val points: MutableList<PointsTuple> = ArrayList<PointsTuple>()
+        var before = false
         for (i in 0 until countOfPlayer - 1) {
-            points.add(PointsTuple(makeRandomTuple()))
+            val judged = judgeRight(before)
+            points.add(PointPair(before, judged))
+            before = judged
         }
-        points.add(PointsTuple(Arrays.asList(before, false)))
+        points.add(PointPair(before, false))
         return points
     }
 
-    private fun makeRandomTuple(): List<Boolean> {
-        return Arrays.asList(before, validRandom())
-    }
-
-    private fun validRandom(): Boolean {
-        return if (BooleanUtils.isTrue(before)) {
-            false.also { before = it }
-        } else randomBoolean()
-    }
-
-    private fun randomBoolean(): Boolean {
-        return ((Math.random() * 2).toInt() > 0).also { before = it }
+    private fun judgeRight(before: Boolean): Boolean {
+        return if (isTrue(before)) false else ((random() * 2) >= 1)
     }
 }

@@ -2,17 +2,18 @@ package ladder.domain
 
 import ladder.dto.PointsTupleDto
 
-class Line(private val canMoveForLines: List<PointsTuple>) {
+class Line(private val canMoveForLines: List<PointPair>) {
+
     init {
         require(!isConsecutive(canMoveForLines))
     }
 
-    private fun isConsecutive(canMoveForLines: List<PointsTuple>): Boolean {
-        return canMoveForLines.contains(PointsTuple(mutableListOf(true, true)))
+    private fun isConsecutive(canMoveForLines: List<PointPair>): Boolean {
+        return canMoveForLines.contains(PointPair(true, true))
     }
 
-    fun determineDirection(position: Int): Direction {
-        return Direction.determine(canMoveForLines[position])
+    fun moveToDirection(position: Int): Int {
+        return Direction.determine(canMoveForLines[position]).move(position)
     }
 
     fun makeTupleDto(): List<PointsTupleDto> {
