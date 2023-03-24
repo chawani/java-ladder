@@ -1,6 +1,6 @@
 package ladder.utils
 
-import ladder.domain.MovePointPair
+import ladder.domain.ladder.MovePointPair
 import org.apache.commons.lang3.BooleanUtils.isTrue
 import java.lang.Math.random
 

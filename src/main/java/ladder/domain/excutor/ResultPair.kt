@@ -1,4 +1,7 @@
-package ladder.domain
+package ladder.domain.excutor
+
+import ladder.domain.reward.Reward
+import ladder.domain.player.Player
 
 class ResultPair(private val player: Player, private val reward: Reward) {
 

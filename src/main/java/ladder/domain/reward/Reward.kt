@@ -1,4 +1,4 @@
-package ladder.domain
+package ladder.domain.reward
 
 class Reward(val value: String) {
 

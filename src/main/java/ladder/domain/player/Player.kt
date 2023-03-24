@@ -1,4 +1,7 @@
-package ladder.domain
+package ladder.domain.player
+
+import ladder.domain.excutor.Direction
+import ladder.domain.ladder.MovePointPair
 
 class Player(
     val name: String,

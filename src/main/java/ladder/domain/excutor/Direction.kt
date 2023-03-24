@@ -1,4 +1,6 @@
-package ladder.domain
+package ladder.domain.excutor
+
+import ladder.domain.ladder.MovePointPair
 
 enum class Direction(private val direction: Int) {
 

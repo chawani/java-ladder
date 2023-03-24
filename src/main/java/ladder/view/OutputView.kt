@@ -1,6 +1,10 @@
 package ladder.view
 
-import ladder.domain.*
+import ladder.domain.excutor.ResultPairs
+import ladder.domain.ladder.Ladder
+import ladder.domain.ladder.Line
+import ladder.domain.player.Players
+import ladder.domain.reward.Rewards
 import org.apache.commons.lang3.StringUtils
 
 object OutputView {

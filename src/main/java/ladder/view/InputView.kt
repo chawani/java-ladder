@@ -1,9 +1,9 @@
 package ladder.view
 
-import ladder.domain.Player
-import ladder.domain.Players
-import ladder.domain.Reward
-import ladder.domain.Rewards
+import ladder.domain.player.Player
+import ladder.domain.player.Players
+import ladder.domain.reward.Reward
+import ladder.domain.reward.Rewards
 import ladder.utils.Validator
 
 object InputView {

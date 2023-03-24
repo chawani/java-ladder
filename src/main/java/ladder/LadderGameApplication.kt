@@ -1,7 +1,7 @@
 package ladder
 
-import ladder.domain.Ladder
-import ladder.domain.ResultPairs
+import ladder.domain.ladder.Ladder
+import ladder.domain.excutor.ResultPairs
 import ladder.view.InputView
 import ladder.view.OutputView
 

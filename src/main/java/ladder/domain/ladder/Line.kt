@@ -1,4 +1,4 @@
-package ladder.domain
+package ladder.domain.ladder
 
 class Line(val movePointPairs: List<MovePointPair>) {
 

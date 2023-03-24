@@ -1,4 +1,9 @@
-package ladder.domain
+package ladder.domain.excutor
+
+import ladder.domain.reward.Rewards
+import ladder.domain.ladder.Ladder
+import ladder.domain.ladder.Line
+import ladder.domain.player.Players
 
 class ResultPairs(
     players: Players,
